@@ -54,14 +54,14 @@ class Account(AbstractBaseUser):
     phone_number = models.CharField(max_length=50, unique=True)
 
     # required
-    date_joined = models.DateTimeField(auto_new_add=True)
-    last_login = models.DateTimeField(auto_new_add=True)
+    date_joined = models.DateTimeField(auto_now_add=True)
+    last_login = models.DateTimeField(auto_now_add=True)
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
     is_superadmin = models.BooleanField(default=False)
 
-    USERNAME_FILED = 'email'     # this will override the username we will use email for login
+    USERNAME_FIELD = 'email' # this will override the username we will use email for login
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
 
     objects = MyAccountManager()
