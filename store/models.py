@@ -14,5 +14,9 @@ class Product(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name = 'product'
+        verbose_name_plural = 'products'
+
     def __str__(self):
         return self.product_name
