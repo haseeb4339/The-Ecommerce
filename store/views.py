@@ -28,10 +28,3 @@ def store(request, category_slug=None):
     }
 
     return render(request, 'store/store.html', context)
-
-
-
-
-
-
-
