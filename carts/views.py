@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from store.models import Product
-from carts.models import Cart, CartItem
+from .models import Cart, CartItem
 
 
 
