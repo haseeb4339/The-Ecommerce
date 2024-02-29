@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from .models import Product
+from .models import Product, Variation
 
 from category.models import Category
 from carts.models import CartItem
@@ -49,6 +49,8 @@ def product_detail(request, category_slug, product_slug):
     try:
 
         single_product = Product.objects.get(category__slug=category_slug, slug = product_slug)
+        variation = Variation.objects.get(product=single_product)
+        print(variation)
         in_cart = CartItem.objects.filter(cart__cart_id=_cart_add(request), product=single_product).exists()
 
 
@@ -58,6 +60,7 @@ def product_detail(request, category_slug, product_slug):
 
     context = {
         'single_product': single_product,
+        'variation':variation,
         'in_cart':in_cart,
     }   
 
