@@ -37,6 +37,7 @@ def add_cart(request, product_id):
             for item in product_varitaion:
                 cart_item.variations.clear()
                 cart_item.variations.add(item)
+                
         # cart_item.quantity +=1
         cart_item.save()
     except CartItem.DoesNotExist:
@@ -52,7 +53,7 @@ def add_cart(request, product_id):
                 cart_item.variations.add(item)
         cart_item.save()
 
-    
+
     return redirect('cart')
 
 def remove_cart(request, product_id):
@@ -106,5 +107,6 @@ def cart(request, total = 0, quantity=0, cart_items=None):
 
 
     return render(request, 'store/cart.html', context)
+
 
 
